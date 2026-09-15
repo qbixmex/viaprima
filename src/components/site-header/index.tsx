@@ -6,8 +6,6 @@ import Link from "next/link";
 import { NavLink } from "./nav-link";
 import { NAV_LINKS } from "./nav-link/data";
 
-const LOGO = "/images/inicio_00_6dfae39e6af5.png";
-
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
@@ -21,7 +19,7 @@ export function SiteHeader() {
       <div className="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md">
         <Link href="/" className="flex items-center gap-space-sm shrink-0">
           <Image
-            src={LOGO}
+            src="/favicon.png"
             alt="ViaPrima"
             width={512}
             height={288}

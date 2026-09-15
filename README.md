@@ -1,6 +1,6 @@
 # Via Prima
 
-<div style="text-align:center;">
+<div align="center">
   <img src="./public/via_prima_logo.png" alt="Paqueteria via prima" width="300px" />
 </div>
 

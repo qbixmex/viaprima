@@ -1,54 +1,33 @@
 import Image from "next/image";
-import { Icon } from "@iconify/react";
 import { ContactSupport } from "./contact-support";
-import Solutions from "./solutions";
 import { NavigationLinks } from "./navigation-links";
-
-const LOGO = "/images/inicio_00_6dfae39e6af5.png";
 
 export const SiteFooter = () => {
   return (
     <footer className="w-full bg-[#070b14] border-t border-slate-800/80 text-white pt-space-xl pb-space-lg">
       <div className="max-w-7xl mx-auto px-gutter">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl pb-space-xl">
-          <div className="lg:col-span-2 flex flex-col gap-space-md">
+        <div className="flex flex-col md:flex-row gap-space-xl pb-space-xl">
+          <div className="flex-1 md:flex-4 flex flex-col gap-space-md">
             <div className="flex items-center gap-space-sm">
               <Image
-                src={LOGO}
+                src="/favicon.png"
                 alt="Logo ViaPrima"
                 width={512}
                 height={288}
                 className="h-8 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
               />
-              <span className="font-headline-sm text-headline-sm text-white font-extrabold">
-                ViaPrima
+              <span className="font-headline-sm text-headline-sm italic font-extrabold">
+                <span className="text-primary">Via</span>
+                <span className="text-secondary">Prima</span>
               </span>
             </div>
 
-            <p className="text-slate-400 font-body-sm text-body-sm max-w-md leading-relaxed">
-              Centro de distribución especializado en la recepción, organización
-              y distribución de paquetes para entregas a domicilio. Proveedor
-              logístico aliado en última milla con infraestructura orientada a
-              máxima velocidad y trazabilidad.
+            <p className="text-slate-400 font-body-md text-body-md leading-relaxed">
+              Centro de distribución especializado en la recepción, organización y distribución de paquetes para entregas a domicilio. Proveedor logístico aliado en última milla con infraestructura orientada a máxima velocidad y trazabilidad.
             </p>
-
-            <div className="p-space-md rounded-xl bg-[#0f172a] border border-slate-800 flex flex-col gap-1">
-              <div className="flex items-center gap-2 text-blue-400 font-label-sm text-label-sm">
-                <Icon icon="md:design" className="text-[16px]" />
-                <span className="font-bold uppercase tracking-wider">
-                  Transparencia Operativa
-                </span>
-              </div>
-              <p className="font-body-sm text-body-sm text-slate-400">
-                Nota informativa: ViaPrima es una empresa y centro de
-                distribución independiente que colabora con proveedores
-                logísticos como 99minutos para la distribución de última milla.
-              </p>
-            </div>
           </div>
 
           <NavigationLinks />
-          <Solutions />
           <ContactSupport />
         </div>
 
