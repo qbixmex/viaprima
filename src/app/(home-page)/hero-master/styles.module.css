@@ -1,0 +1,149 @@
+@reference "#globals.css";
+
+.heroMaster {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	padding-block: 2rem;
+	border-bottom-width: 1px;
+	border-color: --alpha(var(--color-slate-800) / 60%);
+	@apply bg-surface-container-low;
+}
+
+.container {
+	max-width: 1280px;
+	margin-inline: auto;
+	display: flex;
+  gap: --spacing(10);
+
+  @apply px-gutter;
+}
+
+.data {
+	display: flex;
+  width: 100%;
+	flex-direction: column;
+	align-items: flex-start;
+
+  @variant lg {
+		width: 50%;
+	}
+
+  .title {
+		letter-spacing: -0.025em;
+		text-wrap: balance;
+		line-height: 1.08;
+		margin-bottom: 1.5rem;
+		color: var(--color-slate-100);
+		@apply font-display-hero text-display-hero;
+	}
+
+  .description {
+		max-width: var(--container-xl);
+		margin-bottom: --spacing(6);
+		color: var(--color-slate-300);
+		@apply font-body-lg text-body-lg leading-relaxed text-pretty;
+	}
+
+  .highlight {
+		font-weight: 600;
+		text-underline-offset: 0.125em;
+		color: var(--color-tertiary);
+		font-style: italic;
+	}
+
+  .badge {
+		display: inline-flex;
+		align-items: center;
+		gap: --spacing(3);
+		padding-inline: --spacing(3);
+		padding-block: --spacing(1.5);
+		border-radius: var(--radius-xl);
+		border-width: 1px;
+		margin-bottom: --spacing(8);
+		@apply bg-surface-container shadow-md;
+		@apply border-slate-700/80;
+	}
+
+  .badgeIcon {
+		color: var(--color-amber-400);
+		@apply text-xl;
+	}
+
+  .badgeText {
+		display: inline-flex;
+		gap: --spacing(2);
+		font-weight: 800;
+		text-transform: uppercase;
+		@apply font-headline-sm text-headline-sm text-white;
+	}
+
+  .accentBlue,
+	.accentRed,
+	.accentAmber {
+		letter-spacing: 2px;
+	}
+
+  .accentAmber {
+		color: var(--color-amber-400);
+	}
+
+  .accentBlue {
+		color: var(--color-blue-400);
+	}
+
+  .accentRed {
+		color: var(--color-red-400);
+	}
+
+  .cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		border-width: 1px;
+		padding-inline: 1.5rem;
+		padding-block: 0.875rem;
+		border-radius: 0.75rem;
+		border-color: var(--color-slate-700);
+		background-color: --alpha(var(--color-surface-bright) / 50%);
+		font-weight: 600;
+		font-family: var(--font-label-md);
+		font-size: var(--text-xl) !important;
+		color: var(--color-slate-200);
+		transition-duration: 300ms;
+		transition-timing-function: var(--ease-in-out);
+		@apply transition-colors text-label-md;
+		@variant hover {
+			color: var(--color-neutral-50);
+			background-color: var(--color-surface-bright);
+		}
+	}
+
+  .ctaIcon {
+		@apply text-tertiary;
+		font-size: 24px;
+	}
+
+  .visual {
+		position: relative;
+		@variant lg {
+			grid-column: span 5 / span 5;
+		}
+	}
+}
+
+.imageWrapper {
+	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @variant lg {
+    width: 50%;
+  }
+
+  .image {
+    width: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,68 @@
+@reference "#globals.css";
+
+.operativeModules {
+  width: 100%;
+  padding-block: --spacing(24);
+  background-color: var(--color-background);
+}
+
+.article {
+  @apply max-w-7xl mx-auto px-gutter;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: --spacing(16);
+  gap: --spacing(5);
+
+  @variant md {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .badge {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: --spacing(2);
+    color: var(--color-blue-50);
+    background-color: --alpha(var(--color-blue-900) / 70%);
+    border: 1px solid;
+    border-color: --alpha(var(--color-blue-700) / 90%);
+    padding-inline: --spacing(6);
+    padding-block: --spacing(3);
+    text-transform: uppercase;
+    margin-bottom: --spacing(2);
+    border-radius: var(--radius-lg);
+    margin-bottom: --spacing(6);
+    @apply font-mono-tracking text-mono-tracking tracking-wider;
+  }
+  
+  .title {
+    @apply font-headline-xl text-headline-xl text-white tracking-tight font-extrabold mb-4;
+  }
+
+  .description {
+    color: var(--color-slate-300);
+    @apply font-body-lg text-body-lg leading-relaxed;
+  }
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: --spacing(5);
+
+  @variant md {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: --spacing(6);
+  }
+
+  @variant lg {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: --spacing(7);
+  }
+}
