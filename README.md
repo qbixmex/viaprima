@@ -31,3 +31,9 @@ bun run build
 ```bash
 bun run lint
 ```
+
+## Check typescript errors
+
+```bash
+bun run type-check
+```

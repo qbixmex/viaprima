@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { StatisticType } from "../data";
+import type { FC } from "react";
+import type { StatisticType } from "../data";
 import { Icon } from "@iconify/react";
 
 type Props = Readonly<{ stat: StatisticType }>;

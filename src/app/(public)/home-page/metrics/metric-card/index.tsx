@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { cn } from "@/lib/cn";
-import { Icon } from "@iconify/react";
+import type { FC } from "react";
 import Image from "next/image";
-import { MetricCard } from "./data";
+import { Icon } from "@iconify/react";
+import { cn } from "@/lib/cn";
+import type { MetricCard } from "./data";
 
 type Props = Readonly<{ card: MetricCard; }>;
 

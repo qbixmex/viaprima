@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { Icon } from "@iconify/react";
 import { fundaments, statistics } from "./data";
 import { Fundament } from "./fundament";

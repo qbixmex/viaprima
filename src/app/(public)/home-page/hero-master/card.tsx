@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/cn";
-import { FC } from "react";
-import { OperativeCard } from "../operative-modules/data";
+import type { FC } from "react";
+import type { OperativeCard } from "../operative-modules/data";
 
 type Props = Readonly<{ card: OperativeCard }>;
 

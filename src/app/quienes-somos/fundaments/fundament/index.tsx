@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import type { FundamentType } from "../data";
 import { cn } from "@/lib/cn";
 import { Icon } from "@iconify/react";

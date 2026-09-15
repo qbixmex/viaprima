@@ -1,9 +1,10 @@
 "use client";
 
-import { FC, useState } from "react";
+import type { FC } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { Icon } from "@iconify/react";
-import { Question } from "@/app/preguntas-frecuentes/data";
+import type { Question } from "@/app/preguntas-frecuentes/data";
 
 type Props = {
   questions: Question[];

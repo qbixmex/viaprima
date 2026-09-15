@@ -3,7 +3,7 @@
 import type { FC } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { NavLinkType } from './data';
+import type { NavLinkType } from './data';
 import { cn } from '@/lib/cn';
 
 type Props = Readonly<{
