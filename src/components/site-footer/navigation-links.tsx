@@ -8,10 +8,10 @@ type Navigation = {
 
 const NAVIGATION: Navigation[] = [
   { id: "d85j", href: "/", label: "Inicio" },
-  { id: "m4k2", href: "/quienes-somos", label: "Quiénes somos" },
+  { id: "m4k2", href: "/quienes-somos", label: "¿ Quiénes somos ?" },
   { id: "x7y5", href: "/servicios", label: "Servicios" },
-  { id: "a58b", href: "/preguntas_frecuentes", label: "Preguntas frecuentes" },
-  { id: "0o3n", href: "/como-funciona", label: "Cómo funciona" },
+  { id: "a58b", href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
+  { id: "0o3n", href: "/como-funciona", label: "¿ Cómo funciona ?" },
 ] as const;
 
 export const NavigationLinks = () => {

@@ -23,7 +23,7 @@ export const SiteFooter = () => {
             </div>
 
             <p className="text-slate-400 font-body-md text-body-md leading-relaxed">
-              Centro de distribución especializado en la recepción, organización y distribución de paquetes para entregas a domicilio. Proveedor logístico aliado en última milla con infraestructura orientada a máxima velocidad y trazabilidad.
+              Centro de distribución especializado en la recepción, organización y distribución de paquetes para entregas a domicilio. Proveedor logístico con infraestructura orientada a máxima velocidad y trazabilidad.
             </p>
           </div>
 

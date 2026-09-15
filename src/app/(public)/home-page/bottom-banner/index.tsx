@@ -67,14 +67,14 @@ export const BottomBanner: FC = () => {
               <CheckList />
             </div>
             <div className="pt-4 border-t border-slate-800 bg-surface-container-low p-4 rounded-xl">
-              <span className="font-label-sm text-label-sm text-slate-400 block mb-1">
-                ¿Necesitas soporte con un envío?
-              </span>
+              <p className="font-label-sm text-label-sm text-tertiary block mb-2">
+                ¿ Necesitas soporte con un envío ?
+              </p>
               <Link
                 href="/contacto"
                 className="font-label-md text-label-md text-blue-400 hover:text-blue-300 flex items-center gap-1 font-bold"
               >
-                <span>Contactar a mesa de control</span>
+                <span>Ponte en contacto con nosotros</span>
                 <Icon icon="arrow_forward" className="text-[16px]" />
               </Link>
             </div>
