@@ -1,29 +1,7 @@
 import Image from "next/image";
 import { ContactForm } from "@/app/contacto/contact-form";
 import { Icon } from "@iconify/react";
-
-const CONTACTO_HERO_IMAGE = "/images/contacto_01_b9e4caa64fca.png";
-
-const INFO_CARDS = [
-  {
-    icon: "mdi:schedule",
-    title: "Horario de Atención",
-    description: "Lunes a Viernes: 8:00 a.m. - 6:00 p.m. Sábados: 9:00 a.m. - 2:00 p.m. Domingos: Recepción y soporte 24/7.",
-    color: "bg-blue-950/60 border-blue-700/40 text-blue-400",
-  },
-  {
-    icon: "mdi:call",
-    title: "Línea de Contacto",
-    description: "331-234-5678",
-    color: "bg-amber-950/60 border-amber-700/40 text-amber-400",
-  },
-  {
-    icon: "mdi:alternate-email",
-    title: "Correo Electrónico",
-    description: "contacto@viaprima.mx",
-    color: "bg-red-950/60 border-red-700/40 text-red-400",
-  },
-];
+import { infoCards } from "./data";
 
 const ContactoPage = () => {
   return (
@@ -51,9 +29,9 @@ const ContactoPage = () => {
             </p>
 
             <div className="mt-8 flex flex-col gap-4">
-              {INFO_CARDS.map((card) => (
+              {infoCards.map((card) => (
                 <div
-                  key={card.title}
+                  key={card.id}
                   className="flex gap-3 p-5 rounded-2xl bg-surface-container border border-slate-800 shadow-md hover:border-slate-700 transition-all"
                 >
                   <div
@@ -79,7 +57,7 @@ const ContactoPage = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-surface-container border border-slate-800">
               <div className="relative h-90 w-full">
                 <Image
-                  src={CONTACTO_HERO_IMAGE}
+                  src="/images/atencion-al-cliente.png"
                   alt="Sala de control y atención al cliente ViaPrima"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -91,18 +69,13 @@ const ContactoPage = () => {
                   <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">
                     <Icon icon="mdi:question-answer" className="text-[22px]" />
                   </div>
-                  <div>
-                    <span className="font-headline-sm text-headline-sm text-white font-bold block">
-                      Atención personalizada
-                    </span>
-                    <span className="font-label-sm text-label-sm text-amber-400">
-                      Tiempo de respuesta &lt; 2 hrs hábiles
-                    </span>
-                  </div>
+                  <h2 className="font-headline-md text-headline-md text-white font-bold block">
+                    Atención personalizada
+                  </h2>
                 </div>
-                <p className="font-body-sm text-body-sm text-slate-300 leading-relaxed">
+                <p className="font-body-md text-body-md text-slate-300 leading-relaxed text-pretty">
                   Cada mensaje es atendido por un ejecutivo de operaciones que
-                  conoce el flujo logístico a detalle, no por un bot.
+                  conoce el flujo logístico a detalle y te atenderá todas tus inquietudes en tiempo real.
                 </p>
               </div>
             </div>

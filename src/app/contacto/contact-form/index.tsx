@@ -69,7 +69,7 @@ export const ContactForm: FC = () => {
             <div className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg bg-[#182338] border border-slate-700/60 text-slate-200 text-label-md font-label-md select-none shrink-0">
               <span>🇲🇽</span> <span>+52</span>
             </div>
-            <input id="contact-phone" type="tel" placeholder="331 234 5678" className={inputClasses} />
+            <input id="contact-phone" type="tel" placeholder="331-123-4567" className={inputClasses} />
           </div>
         </div>
 
