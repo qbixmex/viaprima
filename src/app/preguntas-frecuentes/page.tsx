@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/coming-soon";
 import { Icon } from "@iconify/react";
 import { FaqAccordion } from "@/components/faq-accordion";
-import Link from "next/link";
 import { questions } from "./data";
 
 export const metadata: Metadata = {
