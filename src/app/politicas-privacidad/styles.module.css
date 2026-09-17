@@ -1,0 +1,107 @@
+@reference "#globals.css";
+
+.privacyPolicy {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-block: --spacing(20);
+  border-bottom: solid 1px --alpha(var(--color-slate-800) / 60%);
+  z-index: 0;
+  @apply bg-surface-container-low;
+}
+
+.spotlightOne,
+.spotLightTwo {
+  width: --spacing(120);
+  height: --spacing(120);
+  position: absolute;
+  top: -160;
+  z-index: 10;
+  opacity: 50%;
+  background-color: --alpha(var(--color-blue-500) / 15%);
+  border-radius: 50%;
+  pointer-events: none;
+  @apply blur-3xl;
+}
+
+.spotlightOne {
+  left: 0;
+}
+
+.spotLightTwo {
+  right: 0;
+}
+
+.container {
+  z-index: 20;
+  @apply max-w-7xl mx-auto px-gutter;
+}
+
+.h1 {
+  text-align: center;
+  color: var(--color-gray-50);
+  font-weight: bold;
+  @apply font-display-hero text-display-hero tracking-tight leading-relaxed;
+}
+
+.h2 {
+  color: var(--color-gray-50);
+  font-weight: bold;
+  @apply font-headline-lg text-headline-lg mb-2;
+}
+
+.h3 {
+  @apply font-headline-md text-headline-md text-gray-50 font-bold mb-3;
+}
+
+.h4 {
+  font-weight: bold;
+  color: var(--color-gray-50);
+  margin-bottom: --spacing(2);
+
+  @apply font-headline-sm text-headline-sm;
+}
+
+.p {
+  color: var(--color-gray-100);
+  @apply font-body-lg text-body-lg leading-relaxed;
+}
+
+.quote {
+  width: 100%;
+  background-color: --alpha(var(--color-sky-900) / 30%);
+  padding-block: --spacing(3);
+  padding-inline: --spacing(6);
+  border-start-end-radius: var(--radius-lg);
+  border-end-end-radius: var(--radius-lg);
+  margin-block: --spacing(5);
+  border: solid 1px --alpha(var(--color-sky-900) / 60%);
+  border-left: solid 5px var(--color-sky-700);
+  color: var(--color-sky-50);
+  font-size: var(--text-lg);
+
+  @variant md {
+    width: 50%;
+    margin-inline: auto;
+  }
+
+  @variant lg {
+    width: 50%;
+    margin-inline: 0;
+  }
+}
+
+
+.list {
+  margin-left: --spacing(5);
+
+  li {
+    list-style-type: disc;
+    font-size: var(--text-lg);
+  }
+}
+
+.hr {
+  color: var(--color-gray-600);
+  margin-block: --spacing(10);
+}

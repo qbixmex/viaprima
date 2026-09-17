@@ -24,7 +24,7 @@ export function SiteHeader() {
             width={512}
             height={288}
             className="h-8 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
-            priority
+            loading="eager"
           />
           <span className="font-headline-sm text-headline-sm tracking-tight font-extrabold ml-1 italic">
             <span className="text-primary">Via</span>

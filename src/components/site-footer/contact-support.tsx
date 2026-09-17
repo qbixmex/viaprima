@@ -27,11 +27,12 @@ const items: SupportItem[] = [
     icon: 'ci:help-questionmark',
     url: '/preguntas-frecuentes',
   },
-  // {
-  //   id: "bf14",
-  //   label: 'Términos y Privacidad',
-  //   icon: 'ci:book',
-  // },
+  {
+    id: "bf14",
+    label: 'Políticas de Privacidad',
+    icon: 'material-symbols:policy',
+    url: '/politicas-privacidad',
+  },
 ];
 
 export const ContactSupport = () => {
