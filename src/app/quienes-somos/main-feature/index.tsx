@@ -13,25 +13,12 @@ export const MainFeature: FC = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-surface-container border border-slate-800">
             <div className="relative h-105 w-full">
               <Image
-                src="/images/quienes_somos_01_07c48c2efac3.png"
+                src="/images/recepcion-de-paquetes.png"
                 alt="Recorrido interior del centro de distribución ViaPrima"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover opacity-90"
               />
-            </div>
-          </div>
-          <div className="absolute -bottom-6 -right-4 sm:right-8 bg-surface-container border border-slate-700 p-4 rounded-2xl shadow-2xl flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shadow-md shadow-red-600/30">
-              <Icon icon="mdi:factory" className="text-[22px]" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-headline-sm text-headline-sm text-white font-bold leading-tight">
-                Centro Operativo
-              </span>
-              <span className="font-label-sm text-label-sm text-slate-400">
-                Zona Metropolitana - Activo 24/7
-              </span>
             </div>
           </div>
         </div>
@@ -46,21 +33,19 @@ export const MainFeature: FC = () => {
           </h2>
           <div className="space-y-4">
             <p className="font-body-lg text-body-lg text-slate-300 leading-relaxed">
-              ViaPrima funciona como un nodo intermedio de logística:{" "}
-              <strong className="text-white">recibimos</strong> paquetes desde
-              los centros de operación, los{" "}
-              <strong className="text-white">organizamos</strong> de forma
-              táctica por sector y los{" "}
-              <strong className="text-white">despachamos</strong> listos para
-              ser distribuidos hasta el domicilio final.
+              <b><i><span className="text-primary">Via</span><span className="text-secondary">Prima</span></i></b>&nbsp;
+              funciona como un nodo intermedio de logística donde&nbsp;
+              recibimos paquetes desde los centros de operación.
             </p>
-            <p className="font-body-md text-body-md text-slate-400 leading-relaxed">
-              Esta operación se lleva a cabo en estrecha colaboración con{" "}
-              <strong className="text-white">99minutos</strong>, quien actúa
-              como proveedor logístico de la carga que llega a nuestras
-              instalaciones. Nosotros aseguramos la continuidad operativa:
-              control de inventarios a nivel de guía, clasificación física y
-              coordinación con las rutas de entrega final.
+            <p className="font-body-lg text-body-lg text-slate-300 leading-relaxed">
+              Esta operación se lleva a cabo en colaboración con proveedores logísticos&nbsp;
+              donde los paquetes que llegan a nuestras instalaciones, se capturan&nbsp;
+              y se crean rutas eficientes para que nuestros repartidores&nbsp;
+              comiencen a repartir y por lo siguiente entregar en tiempo y forma.
+            </p>
+            <p className="font-body-lg text-body-lg text-slate-300 leading-relaxed">
+              Para ello tenemos un control de inventarios a nivel de guía,&nbsp;
+              clasificación física y coordinación con las rutas de entrega final.
             </p>
           </div>
         </div>
