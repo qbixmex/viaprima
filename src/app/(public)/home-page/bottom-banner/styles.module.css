@@ -1,0 +1,194 @@
+@reference "#globals.css";
+
+.bottomBanner {
+  position: relative;
+  width: 100%;
+  padding-block: --spacing(20);
+  border-top: solid 1px;
+  border-top-color: var(--color-slate-800);
+  color: var(--color-slate-50);
+  background-color: var(--color-surface-container-low);
+  overflow: hidden;
+}
+
+.spotlightOne,
+.spotlightTwo {
+  position: absolute;
+  width: --spacing(96);
+  height: --spacing(96);
+  border-radius: 50%;
+  background-color: --alpha(var(--color-blue-600) / 15%);
+  pointer-events: none;
+  opacity: 80%;
+  @apply blur-3xl;
+}
+
+.spotlightOne {
+  top: calc(var(--spacing) * -40);
+  left: calc(var(--spacing) * -40);
+}
+
+.spotlightTwo {
+  bottom: calc(var(--spacing) * -40);
+  right: calc(var(--spacing) * -40);
+}
+
+.container {
+  position: relative;
+  margin-inline: auto;
+  z-index: 10;
+
+  @apply max-w-7xl px-gutter;
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: --spacing(10);
+    align-items: center;
+    @variant lg {
+      flex-direction: row;
+    }
+
+    .columnOne {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      @apply lg:col-span-8 items-start;
+      @variant lg {
+        flex: 2;
+      }
+    }
+
+    .columnTwo {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: --spacing(6);
+      padding: --spacing(8);
+      background-color: --alpha(var(--color-surface-container) / 80%);
+      border: solid 1px;
+      border-color: --alpha(var(--color-slate-700) / 80%);
+      border-radius: var(--radius-3xl);
+      @apply backdrop-blur-md shadow-2xl;
+      @variant lg {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: --spacing(2);
+  padding-inline: --spacing(6);
+  padding-block: --spacing(3);
+  border-radius: var(--radius-4xl);
+  background-color: --alpha(var(--color-slate-800) / 80%);
+  border: solid 1px;
+  border-color: var(--color-slate-700);
+  color: var(--color-amber-400);
+  text-transform: uppercase;
+  margin-bottom: --spacing(4);
+
+  @apply font-mono-tracking text-mono-tracking;
+
+  .badgeIcon {
+    font-size: 24px;
+  }
+}
+
+.title {
+  color: var(--color-slate-50);
+  font-weight: 800;
+  margin-bottom: --spacing(4);
+
+  @apply font-headline-lg text-headline-lg tracking-tight;
+}
+
+.description {
+  color: var(--color-slate-300);
+  margin-bottom: --spacing(8);
+  @apply font-body-lg text-body-lg max-w-2xl leading-relaxed;
+}
+
+.card {
+  padding: --spacing(5);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-surface-container);
+  border: solid 1px;
+  border-color: var(--color-slate-800);
+
+  .cardLayout {
+    @apply flex items-start gap-3;
+  }
+
+  .cardIcon {
+    font-size: 32px;
+    color: var(--color-tertiary);
+    margin-top: --spacing(0.5);
+  }
+
+  .cardTitle {
+    display: block;
+    color: var(--color-slate-50);
+    font-weight: bold;
+    margin-bottom: --spacing(1);
+    font-family: var(--font-label-lg);
+
+    @apply text-label-lg;
+  }
+
+  .cardDescription {
+    font-family: var(--font-body-md);
+    color: var(--color-slate-300);
+
+    @apply text-body-md leading-relaxed;
+  }
+}
+
+.distribution {
+  .distributionTitle {
+    display: block;
+    color: var(--color-slate-50);
+    font-weight: 900;
+    @apply font-headline-sm text-headline-sm;
+  }
+
+  .distributionSubtitle {
+    color: var(--color-amber-400);
+    @apply font-label-sm text-label-sm;
+  }
+}
+
+.distributionSubCard {
+  border-top: solid 1px;
+  border-color: var(--color-slate-800);
+  padding: --spacing(4);
+  border-radius: var(--radius-lg);
+
+  @apply bg-surface-container-low;
+
+  p {
+    display: block;
+    margin-bottom: --spacing(2);
+    @apply font-label-md text-label-md text-tertiary;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    color: var(--color-blue-400);
+    gap: --spacing(1);
+    font-weight: bold;
+
+    @apply font-label-md text-label-md;
+    @apply transition-colors duration-300 ease-in-out;
+
+    @variant hover {
+      color: var(--color-blue-300);
+    }
+  }
+}
