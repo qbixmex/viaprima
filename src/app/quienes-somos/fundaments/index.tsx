@@ -1,8 +1,7 @@
 import type { FC } from "react";
 import { Icon } from "@iconify/react";
-import { fundaments, statistics } from "./data";
+import { fundaments } from "./data";
 import { Fundament } from "./fundament";
-import { Statistic } from "./statistics";
 
 export const Fundaments: FC = () => {
   return (
@@ -26,13 +25,6 @@ export const Fundaments: FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {fundaments.map((fundament) => (
             <Fundament key={fundament.id} fundament={fundament} />
-          ))}
-        </div>
-
-        {/* STATS */}
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {statistics.map((stat) => (
-            <Statistic key={stat.id} stat={stat} />
           ))}
         </div>
       </div>

@@ -21,9 +21,9 @@ export function SiteHeader() {
           <Image
             src="/favicon.png"
             alt="ViaPrima"
-            width={512}
-            height={288}
-            className="h-8 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
+            width={50}
+            height={0}
+            className="w-12.5 h-auto object-contain"
             loading="eager"
           />
           <span className="font-headline-sm text-headline-sm tracking-tight font-extrabold ml-1 italic">

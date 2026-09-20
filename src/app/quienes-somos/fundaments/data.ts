@@ -5,14 +5,6 @@ export type StatisticType = {
   label: string;
 };
 
-export const statistics: StatisticType[] = [
-  { id: "f3g7", icon: "package_2", value: "100k+", label: "Paquetes procesados" },
-  { id: "gph6", icon: "schedule", value: "24/7", label: "Operación continua" },
-  { id: "b765", icon: "maps_ugc", value: "98.2%", label: "Satisfacción de entrega" },
-  { id: "8y54", icon: "link", value: "100%", label: "Sincronía con 99minutos" },
-];
-
-
 export type FundamentType = {
   id: string;
   icon: string;
