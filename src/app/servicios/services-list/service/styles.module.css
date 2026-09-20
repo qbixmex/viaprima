@@ -1,0 +1,92 @@
+@reference "#globals.css";
+
+.service {
+  display: flex;
+  flex-direction: column;
+  padding: --spacing(8);
+  border-radius: var(--radius-2xl);
+  border: solid 1px var(--color-slate-700);
+  transition: all 250ms ease-in-out;
+
+  @apply bg-surface-container;
+
+  @variant hover {
+    transform: translateY(calc(var(--spacing) * -4));
+  }
+
+  .tag {
+    padding-inline: --spacing(3);
+    padding-block: --spacing(1.5);
+    border: solid 1px;
+    border-radius: var(--radius-xl);
+    text-transform: uppercase;
+
+    @apply font-mono-tracking text-mono-tracking;
+  }
+
+  .iconWrapper {
+    display: none;
+    width: --spacing(12);
+    height: --spacing(12);
+    border-radius: var(--radius-xl);
+    display: grid;
+    place-content: center;
+
+    @apply transition-colors border;
+
+    .icon {
+      font-size: 25px;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: --spacing(5);
+  }
+
+  .title {
+    color: var(--color-gray-50);
+    font-weight: bold;
+    margin-bottom: --spacing(3);
+
+    @apply font-headline-sm text-headline-sm;
+  }
+
+  .description {
+    color: var(--color-slate-300);
+    @apply font-body-md text-body-md leading-relaxed;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: --alpha(var(--color-gray-500) / 50%);
+    margin-block: --spacing(6);
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: --spacing(2);
+    margin-top: auto;
+
+    .listItem {
+      display: flex;
+      align-items: start;
+      gap: --spacing(2.5);
+    }
+
+    .listIcon {
+      color: var(--color-blue-400);
+      font-size: 8px;
+      margin-top: --spacing(1.5);
+    }
+
+    .listBullet {
+      color: var(--color-slate-300);
+      @apply font-body-sm text-body-sm leading-snug;
+    }
+  }
+}

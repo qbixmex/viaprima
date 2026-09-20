@@ -1,0 +1,77 @@
+@reference "#globals.css";
+
+.servicesList {
+  width: 100%;
+  padding-block: --spacing(24);
+  border-block-style: var(--tw-border-style);
+  border-block-width: 1px;
+  border-block-color: --alpha(var(--color-slate-700) / 80%);
+
+  @apply bg-surface-container-low;
+
+  .container {
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+
+    @apply px-gutter;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: --spacing(14);
+      gap: --spacing(6);
+
+      @variant md {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .title {
+        color: var(--color-slate-50);
+        font-weight: 800;
+        margin-bottom: --spacing(4);
+        @apply font-headline-xl text-headline-xl tracking-tight;
+      }
+
+      .description {
+        color: var(--color-slate-300);
+        @apply font-body-lg text-body-lg leading-relaxed;
+      }
+
+      .link {
+        display: inline-flex;
+        flex-shrink: 0;
+        align-items: center;
+        gap: --spacing(2);
+        background-color: var(--color-blue-600);
+        color: var(--color-blue-50);
+        padding-inline: --spacing(6);
+        padding-block: --spacing(3.5);
+        border-radius: var(--radius-xl);
+        font-weight: bold;
+        
+
+        @apply font-label-md text-label-md transition-colors duration-300;
+
+        @variant hover {
+          background-color: var(--color-blue-700);
+        }
+      }
+    }
+  }
+}
+
+.services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: --spacing(5);
+
+  @variant md {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+
+  @variant lg {
+    grid-template-columns: repeat(3, minmax(33%, 1fr));
+  }
+}

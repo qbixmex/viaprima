@@ -1,0 +1,21 @@
+@reference "#globals.css";
+
+.card {
+	@apply p-6 rounded-2xl bg-surface-container-low border border-slate-800 hover:border-slate-700 transition-all flex flex-col items-start;
+
+  .iconWrapper {
+		@apply size-12 rounded-xl border flex items-center justify-center mb-4;
+	}
+
+  .cardTitle {
+		@apply font-headline-sm text-headline-sm text-white font-bold mb-2;
+	}
+
+  .cardDescription {
+		@apply font-body-sm text-body-sm text-slate-400 leading-relaxed mb-4;
+	}
+
+  .cardSubtitle {
+		@apply font-label-md text-label-md mt-auto font-bold flex items-center gap-1.5;
+	}
+}

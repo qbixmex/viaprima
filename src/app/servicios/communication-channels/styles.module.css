@@ -1,0 +1,102 @@
+@reference "#globals.css";
+
+.communicationChannels {
+  width: 100%;
+  padding-block: --spacing(20);
+  background-color: var(--color-surface-dim);
+
+  .container {
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+
+    @apply px-gutter;
+  }
+
+  .content {
+    background-color: --alpha(var(--color-surface-container-high) / 70%);
+    border-width: 1px;
+    border-style: var(--tw-border-style);
+    border-color: var(--color-slate-700);
+    border-radius: var(--radius-3xl);
+    padding: --spacing(8);
+
+    @variant md {
+      padding: --spacing(12);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: --spacing(8);
+      margin-bottom: --spacing(10);
+
+      @variant lg {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .preTitle {
+        .icon-title {
+          display: flex;
+          align-items: center;
+          gap: --spacing(2);
+          text-transform: uppercase;
+          margin-bottom: --spacing(2);
+
+          @apply text-primary font-mono-tracking text-mono-tracking tracking-wider;
+        }
+      }
+
+      .title {
+        color: var(--color-slate-50);
+        font-weight: 800;
+
+        @apply font-headline-lg text-headline-lg tracking-tight;
+      }
+
+      .badge {
+        .badgeIconText {
+          display: flex;
+          align-items: center;
+          gap: --spacing(2);
+          background-color: --alpha(var(--color-blue-950) / 50%);
+          border-width: 1px;
+          border-style: var(--tw-border-style);
+          border-color: --alpha(var(--color-blue-900) / 80%);
+          color: var(--color-blue-50);
+          border-radius: var(--radius-xl);
+          padding-inline: --spacing(8);
+          padding-block: --spacing(4);
+
+          @variant hover {
+            border-color: var(--color-blue-900);
+            background-color: var(--color-blue-950);
+          }
+
+          @apply font-label-lg text-label-lg transition-colors duration-300;
+
+          .badgeIcon {
+            color: var(--color-blue-50);
+            font-size: 24px;
+          }
+        }
+      }
+    }
+
+    .body {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(250px, 1fr));
+      gap: --spacing(5);
+      
+      @variant md {
+        gap: --spacing(6);
+      }
+
+      @variant lg {
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        gap: --spacing(7);
+      }
+    }
+  }
+}
