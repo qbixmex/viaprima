@@ -1,0 +1,76 @@
+@reference "#globals.css";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: --spacing(8);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-surface-container);
+  border: solid 1px var(--color-slate-800);
+
+  @apply transition-all duration-300;
+
+  @variant hover {
+    transform: translateY(calc(var(--spacing) * -1));
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: --spacing(5);
+
+    .iconWrapper {
+      padding: --spacing(2);
+      border-radius: var(--radius-sm);
+      .icon {
+        font-size: 32px;
+      }
+    }
+
+    .cardNumber {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--color-gray-300);
+      background-color: var(--color-gray-800);
+      padding: --spacing(2);
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: var(--text-xl);
+
+      @apply font-mono-tracking text-mono-tracking;
+    }
+  }
+
+  .content {
+    .title {
+      color: var(--color-slate-50);
+      font-weight: 700;
+      margin-bottom: --spacing(3);
+
+      @apply font-headline-md text-headline-md;
+    }
+  
+    .description {
+      color: var(--color-slate-300);
+
+      @apply font-body-md text-body-md leading-relaxed;
+    }
+  }
+
+  .subHeading {
+    display: flex;
+    align-items: center;
+    padding-top: --spacing(6);
+    margin-top: --spacing(6);
+    gap: --spacing(2);
+    font-weight: 700;
+    border-top: solid 1px --alpha(var(--color-gray-700) / 80%);
+
+    @apply font-label-lg text-label-lg;
+  }
+}
