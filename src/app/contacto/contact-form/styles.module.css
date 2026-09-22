@@ -1,0 +1,280 @@
+@reference "#globals.css";
+
+.contactForm {
+  width: 100%;
+  max-width: var(--container-7xl);
+  margin-inline: auto;
+  margin-block: --spacing(20);
+  background-color: var(--color-background);
+
+  @apply px-gutter;
+
+  .container {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    border-width: 1px;
+    border-color: --alpha(var(--color-slate-800) / 90%);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-space-lg);
+    background-color: var(--color-surface-container);
+
+    @variant md {
+      padding: var(--spacing-space-xl)
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: --spacing(2);
+
+      .headerTitle {
+        color: var(--color-gray-50);
+        font-weight: 700;
+
+        @apply font-headline-xl text-headline-xl;
+      }
+
+      .headerDescription {
+        @apply font-body-lg text-body-lg text-slate-300;
+      }
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin-block: --spacing(10);
+      background-color: --alpha(var(--color-slate-700) / 70%);
+    }
+
+    .mainLayout {
+      display: flex;
+      flex-direction: column;
+      gap: --spacing(7);
+
+      .formLayout {
+        display: flex;
+        flex-direction: column;
+        gap: --spacing(5);
+        margin-bottom: --spacing(2);
+
+        @variant lg {
+          flex-direction: row;
+        }
+      }
+
+      .columnOne {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: --spacing(5);
+      }
+
+      .columnTwo {
+        width: 100%;
+        @variant lg {
+          max-width: 50%;
+        }
+      }
+
+      .inputContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: --spacing(2);
+      }
+
+      .formLabel {
+        color: var(--color-gray-200);
+        @apply font-label-lg text-label-lg;
+      }
+
+      .formInput {
+        width: 100%;
+        padding: --spacing(2.5);
+        border-radius: var(--radius-lg);
+        border-width: 1px;
+        border-color: --alpha(var(--color-slate-700) / 70%);
+        color: var(--color-gray-400);
+        background-color: var(--color-surface-container-low);
+        outline: none;
+      
+        @apply text-body-lg font-body-lg transition-all;
+      
+        @variant placeholder {
+          color: (--color-slate-500);
+        }
+      
+        @variant focus {
+          border-color: var(--color-blue-500);
+          background-color: var(--color-surface-dim);
+      
+          @apply ring-2 ring-blue-500/30;
+        }
+      }
+
+      .phoneContainer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: --spacing(2);
+
+        .phoneArea {
+          display: flex;
+          align-items: center;
+          gap: --spacing(1.5);
+          padding-inline: --spacing(3);
+          padding-block: --spacing(2.5);
+          border-radius: var(--radius-lg);
+          border-width: 1px;
+          border-color: --alpha(var(--color-slate-700) / 70%);
+          background-color: var(--color-surface-container-high);
+          color: var(--color-slate-200);
+
+          @apply text-label-md font-label-md select-none;
+        }
+      }
+
+      .formMessage {
+        flex: 1 0 200px;
+        width: 100%;
+        padding: --spacing(3.5);
+        background-color: var(--color-surface-container-low);
+        border-width: 1px;
+        border-color: --alpha(var(--color-slate-700) / 70%);
+        color: var(--color-gray-400);
+        border-radius: var(--radius-lg);
+        resize: none;
+        outline: none;
+
+        @apply text-body-lg font-body-lg transition-all;
+
+        @variant placeholder {
+          color: (--color-slate-500);
+        }
+      
+        @variant focus {
+          border-color: var(--color-blue-500);
+          background-color: var(--color-surface-dim);
+      
+          @apply ring-2 ring-blue-500/30;
+        }
+      }
+
+      .privacyPolicy {
+        display: flex;
+        align-items: center;
+        gap: --spacing(3);
+        cursor: pointer;
+        margin-bottom: --spacing(2);
+
+        .checkbox {
+          width: --spacing(5);
+          height: --spacing(5);
+          border-radius: var(--radius);
+          color: var(--color-blue-600);
+          background-color: #0c1322;
+          border: none;
+          @apply ring-blue-700;
+
+          @variant focus {
+            @apply ring-blue-500;
+          }
+        }
+
+        .policyText {
+          color: var(--color-slate-400);
+          @apply font-body-lg text-body-lg;
+
+          .policyHighlight {
+            color: var(--color-blue-400);
+            font-weight: 600;
+            transition: color 300ms ease-in-out;
+
+            @variant hover {
+              color: var(--color-blue-500);
+            }
+          }
+        }
+      }
+
+      .submit {
+        display: flex;
+        justify-content: start;
+
+        @variant lg {
+          justify-content: end;
+        }
+
+        .submitButton {
+          width: 100%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: --spacing(2.5);
+          padding-inline: --spacing(6);
+          padding-block: --spacing(3.5);
+          border-radius: var(--radius-lg);
+          background-color: var(--color-blue-600);
+          color: var(--color-blue-50);
+
+          @apply font-label-md text-label-md;
+          @apply transition-colors duration-300 ease-in-out;
+          
+          @variant lg {
+            width: fit-content;
+          }
+
+          @variant hover {
+            background-color: var(--color-blue-700);
+          }
+        }
+      }
+    }
+
+    .confirmMessage {
+      width: calc(100% - --spacing(10));
+      position: absolute;
+      top: --spacing(5);
+      left: --spacing(5);
+      padding: --spacing(5);
+      background-color: var(--color-emerald-950);
+      border-width: 1px;
+      border-color: --alpha(var(--color-emerald-500) / 40%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      gap: --spacing(3);
+      transform: translateX(-50%);
+      opacity: 0%;
+
+      animation: slideAndFade 300ms ease-out forwards;
+
+      @variant lg {
+        width: 50%;
+      }
+
+      .confirmTitle {
+        font-weight: 700;
+        font-size: var(--text-lg);
+        color: var(--color-emerald-500);
+      }
+
+      .confirmDescription {
+        color: var(--color-emerald-50);
+        font-size: var(--text-base);
+      }
+    }
+  }
+}
+
+@keyframes slideAndFade {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
