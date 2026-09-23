@@ -1,0 +1,219 @@
+@reference "#globals.css";
+
+.heroBanner {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  padding-block: --spacing(24);
+  border-bottom: 1px solid;
+  border-bottom-color: --alpha(var(--color-slate-800) / 60%);
+
+  @apply bg-surface-container-low;
+}
+
+.spotlights {
+  position: absolute;
+  background-color: --alpha(var(--color-blue-600) / 10%);
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -10;
+
+  @apply blur-3xl;
+}
+
+.spotlightOne {
+  top: --spacing(-30);
+  left: --spacing(-30);
+}
+
+.spotlightTwo {
+  bottom: --spacing(-30);
+  right: --spacing(-30);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-7xl);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: --spacing(8);
+
+  @apply px-gutter;
+
+  @variant lg {
+    flex-direction: row;
+    gap: --spacing(12);
+  }
+
+  .columns {
+    width: 100%;
+
+    @variant lg {
+      width: 50%;
+    }
+  }
+
+  .columnA {
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: --spacing(2);
+      padding-inline: --spacing(5);
+      padding-block: --spacing(2.5);
+      border-radius: 50px;
+      border: solid 1px;
+      border-color: --alpha(var(--color-blue-500) / 30%);
+      margin-bottom: --spacing(6);
+      background-color: var(--color-surface-container);
+      color: var(--color-blue-400);
+      text-transform: uppercase;
+      font-weight: 700;
+
+      @apply font-mono-tracking text-mono-tracking tracking-wider;
+    }
+
+    .heading {
+      margin-bottom: --spacing(5);
+      color: var(--color-gray-50);
+      @apply font-display-hero text-display-hero tracking-tight;
+    }
+
+    .supportDescription {
+      color: var(--color-slate-300);
+      text-transform: pretty;
+      margin-bottom: --spacing(8);
+      @apply font-body-lg text-body-lg leading-relaxed;
+    }
+
+    .infoCards {
+      display: flex;
+      flex-direction: column;
+      gap: --spacing(5);
+
+      .infoCard {
+        display: flex;
+        align-items: center;
+        gap: --spacing(5);
+        padding: --spacing(5);
+        border-radius: var(--radius-2xl);
+        border: 1px solid;
+        border-color: --alpha(var(--color-slate-700) / 80%);
+
+        @apply bg-surface-container transition-colors;
+
+        @variant hover {
+          border-color: --alpha(var(--color-slate-600) / 80%);
+          @apply bg-surface-container-high;
+        }
+
+        .infoCardIconContainer {
+          width: --spacing(12);
+          height: --spacing(12);
+          border-width: 1px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @apply rounded-xl;
+        }
+
+        .infoCardIcon {
+          font-size: 24px;
+        }
+
+        .infoCardTitle {
+          color: var(--color-gray-50);
+          font-weight: 700;
+          margin-bottom: --spacing(0.5);
+          @apply font-headline-sm text-headline-sm;
+        }
+
+        .infoCardDescription {
+          color: (--color-slate-200);
+          @apply font-body-md text-body-md leading-snug;
+        }
+      }
+    }
+  }
+
+  .columnB {
+    position: relative;
+
+    .cardBorder {
+      position: absolute;
+      border-radius: var(--radius-3xl);
+      pointer-events: none;
+      inset: --spacing(-3);
+
+      @apply bg-linear-to-tr from-secondary/20 via-transparent to-primary/20;
+    }
+
+    .card {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1px solid;
+      border-color: var(--color-slate-800);
+
+      @apply bg-surface-container;
+
+      .cardFigure {
+        position: relative;
+        width: 100%;
+        height: --spacing(90);
+
+        .cardImage {
+          object-fit: cover;
+          opacity: 85%;
+        }
+      }
+
+      .cardContent {
+        padding: --spacing(6);
+
+        @apply bg-surface-container;
+
+        .contentHeading {
+          display: flex;
+          align-items: center;
+          gap: --spacing(4);
+          margin-bottom: --spacing(4);
+
+          .iconContainer {
+            width: --spacing(12);
+            height: --spacing(12);
+            border-radius: var(--radius-xl);
+            background-color: var(--color-blue-600);
+            color: var(--color-gray-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .headingIcon {
+              font-size: 24px;
+            }
+          }
+
+          .contentHeadingTitle {
+            color: var(--color-gray-50);
+            font-weight: bold;
+            @apply font-headline-md text-headline-md;
+          }
+        }
+      }
+
+      .contentDescription {
+        color: var(--color-slate-300);
+        text-wrap: pretty;
+        letter-spacing: 1px !important;
+
+        @apply font-body-lg text-body-lg leading-relaxed;
+      }
+    }
+  }
+}

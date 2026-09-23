@@ -45,9 +45,10 @@ export const HeroMaster = () => {
           <Image
             src="/via_prima_logo.png"
             alt="Centro de clasificación automatizado de paquetería"
-            width={512}
-            height={512}
+            width={540}
+            height={304}
             className={styles.image}
+            loading="eager"
           />
         </div>
       </div>

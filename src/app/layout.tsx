@@ -18,6 +18,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <html
       lang="es"
       className={`${spaceGrotesk.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} bg-background antialiased`}
+      data-scroll-behavior="smooth"
     >
       <head>
         <link rel="icon" href="favicon.png?v=1>" type="image/png" sizes="32x32" />

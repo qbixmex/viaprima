@@ -6,7 +6,7 @@ import Link from "next/link";
 import { NavLink } from "./nav-link";
 import { NAV_LINKS } from "./nav-link/data";
 
-export function SiteHeader() {
+export const SiteHeader = () => {
   const [open, setOpen] = useState(false);
 
   const onOpenMenu = () => {
@@ -21,9 +21,9 @@ export function SiteHeader() {
           <Image
             src="/favicon.png"
             alt="ViaPrima"
-            width={50}
-            height={0}
-            className="w-12.5 h-auto object-contain"
+            width={64}
+            height={64}
+            className="size-[64px] object-contain"
             loading="eager"
           />
           <span className="font-headline-sm text-headline-sm tracking-tight font-extrabold ml-1 italic">
@@ -51,4 +51,4 @@ export function SiteHeader() {
       )}
     </header>
   );
-}
+};
