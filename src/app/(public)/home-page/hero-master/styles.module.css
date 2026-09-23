@@ -159,7 +159,7 @@
 
   .image {
     width: 100%;
-		max-width: 512px;
+		max-width: 540px;
     object-fit: cover;
   }
 }

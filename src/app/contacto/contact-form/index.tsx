@@ -1,19 +1,70 @@
 "use client";
 
-import type { FC, SubmitEvent } from "react";
+import type { FC } from "react";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/cn";
+import { useForm } from "react-hook-form";
+import { contactSchema } from "@/schemas/contact-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { sendEmailAction } from "@/app/contacto/actions/send-email.action";
+import type z from "zod";
 import styles from "./styles.module.css";
+import Link from "next/link";
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
+const DEFAULT_VALUES = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+  privacyPolicy: false,
+};
 
 export const ContactForm: FC = () => {
-  const [sent, setSent] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: DEFAULT_VALUES,
+  });
+  const [isSent, setIsSent] = useState(false);
+  const [error, setError] = useState<{ message: string } | null>(null);
 
-  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 5000)
-    event.currentTarget.reset();
+  const onSubmit = async (data: ContactFormData) => {
+    const formData = new FormData();
+
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('message', data.message);
+    formData.append('privacyPolicy', data.privacyPolicy.toString());
+
+    try {
+      const response = await sendEmailAction(formData);
+
+      if (response.error) {
+        setError({ message: response.error });
+        return;
+      }
+
+      if (response.ok) {
+        setIsSent(true);
+        reset(DEFAULT_VALUES);
+      }
+    } catch (error) {
+      console.error('No se pudo enviar el formulario', error);
+    } finally {
+      setTimeout(() => {
+        setIsSent(false);
+        setError(null);
+      }, 5000);
+      
+    }
   };
 
   return (
@@ -28,7 +79,7 @@ export const ContactForm: FC = () => {
 
         <div className={styles.divider} />
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.mainLayout}>
             <div className={styles.formLayout}>
               <div className={styles.columnOne}>
@@ -39,10 +90,19 @@ export const ContactForm: FC = () => {
                   </label>
                   <input
                     id="name"
-                    name="name"
                     type="text"
-                    className={styles.formInput}
+                    autoFocus={false}
+                    autoComplete="off"
+                    className={cn(styles.formInput, {
+                      [styles.formInputError]: errors.name,
+                    })}
+                    {...register('name')}
                   />
+                  {errors.name && (
+                    <div className={styles.formInputErrorMessage}>
+                      {errors.name.message}
+                    </div>
+                  )}
                 </div>
 
                 {/* EMAIL */}
@@ -52,10 +112,19 @@ export const ContactForm: FC = () => {
                   </label>
                   <input
                     id="email"
-                    name="email"
                     type="email"
-                    className={styles.formInput}
+                    autoFocus={false}
+                    autoComplete="off"
+                    className={cn(styles.formInput, {
+                      [styles.formInputError]: errors.email,
+                    })}
+                    {...register('email')}
                   />
+                  {errors.email && (
+                    <div className={styles.formInputErrorMessage}>
+                      {errors.email.message}
+                    </div>
+                  )}
                 </div>
 
                 {/* Phone */}
@@ -70,10 +139,19 @@ export const ContactForm: FC = () => {
                     </div>
                     <input
                       id="phone"
-                      type="phone"
-                      className={cn(styles.formInput, styles.formPhoneInput)}
+                      autoFocus={false}
+                      autoComplete="off"
+                      className={cn(styles.formInput, {
+                        [styles.formInputError]: errors.phone,
+                      })}
+                      {...register('phone')}
                     />
                   </div>
+                  {errors.phone && (
+                    <div className={styles.formInputErrorMessage}>
+                      {errors.phone.message}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -85,49 +163,103 @@ export const ContactForm: FC = () => {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
-                    className={styles.formMessage}
+                    autoFocus={false}
+                    className={cn(styles.formMessage, {
+                      [styles.formInputError]: errors.message,
+                    })}
+                    {...register('message')}
                   />
+                  {errors.message && (
+                    <div className={styles.formInputErrorMessage}>
+                      {errors.message.message}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
 
             {/* Privacy Policy */}
-            <label className={styles.privacyPolicy}>
-              <input
-                type="checkbox"
-                className={styles.checkbox}
-              />
-              <span className={styles.policyText}>
-                Acepto la{" "}
-                <span className={styles.policyHighlight}>
-                  política de privacidad
-                </span>{" "}
-                y tratamiento de datos para atención y gestión logística de ViaPrima.
-              </span>
-            </label>
+            <section>
+              <div className={styles.privacyPolicy}>
+                <label>
+                  <span className={cn(styles.checkboxWrapper, {
+                    [styles.checkboxError]: errors.privacyPolicy,
+                  })}>
+                    <input
+                      type="checkbox"
+                      className={styles.checkbox}
+                      autoFocus={false}
+                      {...register('privacyPolicy')}
+                    />
+                  </span>
+                </label>
+
+                <Link
+                  href="/politicas-privacidad"
+                  className={styles.policyText}
+                  target="_blank"
+                >
+                  Acepto la{" "}
+                  <span className={styles.policyHighlight}>
+                    política de privacidad
+                  </span>{" "}
+                  y tratamiento de datos para atención y gestión logística de ViaPrima.
+                </Link>
+              </div>
+
+              {errors.privacyPolicy && (
+                <div className={cn(styles.formInputErrorMessage, "ml-10!")}>
+                  {errors.privacyPolicy.message}
+                </div>
+              )}
+            </section>
 
             {/* SUBMIT BUTTON */}
             <div className={styles.submit}>
               <button
                 type="submit"
-                className={styles.submitButton}
+                className={cn(styles.submitButton, {
+                  [styles.submitButtonDisabled]: isSubmitting,
+                  "animate-pulse": isSubmitting,
+                })}
+                disabled={isSubmitting}
               >
-                <span>Enviar mensaje</span>
-                <Icon icon="mdi:send" className="text-[20px] transform -rotate-45" />
+                {isSubmitting ? (
+                  <>
+                    <span>Enviando mensaje</span>
+                    <Icon icon="fa6-solid:spinner" className="text-[20px] animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    <span>Enviar mensaje</span>
+                    <Icon icon="mdi:send" className="text-[20px] transform -rotate-45" />
+                  </>
+                )}
               </button>
             </div>
           </div>
         </form>
 
-        {sent && (
-          <div className={styles.confirmMessage}>
-            <Icon icon="check_circle" className="text-blue-400 text-2xl" />
+        {isSent && (
+          <div className={cn(styles.notification, styles.alertSuccess)}>
+            <Icon icon="material-symbols:check-circle" className={styles.successIcon} />
             <div className="text-body-sm font-body-sm">
               <p className={styles.confirmTitle}>Mensaje enviado exitosamente</p>
               <p className={styles.confirmDescription}>
                 Un ejecutivo de operaciones se pondrá en contacto<br />
                 al correo o teléfono proporcionado.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {error && (
+          <div className={cn(styles.notification, styles.alertError)}>
+            <Icon icon="material-symbols:x-circle" className={styles.errorIcon} />
+            <div className="text-body-sm font-body-sm">
+              <p className={styles.errorTitle}>Ocurrió un error</p>
+              <p className={styles.errorDescription}>
+                {error.message}
               </p>
             </div>
           </div>

@@ -113,6 +113,18 @@
         }
       }
 
+      .formInputError {
+        background-color: --alpha(var(--color-red-950) / 50%) !important;
+        color: var(--color-red-500) !important;
+        border-color: var(--color-red-600) !important;
+      }
+
+      .formInputErrorMessage {
+        color: var(--color-red-500);
+        font-weight: bold;
+        margin-left: --spacing(3);
+      }
+
       .phoneContainer {
         width: 100%;
         display: flex;
@@ -168,18 +180,30 @@
         cursor: pointer;
         margin-bottom: --spacing(2);
 
-        .checkbox {
-          width: --spacing(5);
-          height: --spacing(5);
-          border-radius: var(--radius);
-          color: var(--color-blue-600);
-          background-color: #0c1322;
-          border: none;
-          @apply ring-blue-700;
+        .checkboxWrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-          @variant focus {
-            @apply ring-blue-500;
+          .checkbox {
+            width: --spacing(5);
+            height: --spacing(5);
+            border-radius: var(--radius);
+            color: var(--color-blue-600);
+            background-color: #0c1322;
+            border: none;
+            @apply ring-blue-700;
+  
+            @variant focus {
+              @apply ring-blue-500;
+            }
           }
+        }
+
+        .checkboxError {
+          width: --spacing(7);
+          height: --spacing(7);
+          background-color: var(--color-red-500) !important;
         }
 
         .policyText {
@@ -230,17 +254,20 @@
           }
         }
       }
+      .submitButtonDisabled {
+        background-color: var(--color-gray-700) !important;
+        color: var(--color-gray-400) !important;
+        cursor: not-allowed;
+      }
     }
 
-    .confirmMessage {
+    .notification {
       width: calc(100% - --spacing(10));
       position: absolute;
       top: --spacing(5);
       left: --spacing(5);
       padding: --spacing(5);
-      background-color: var(--color-emerald-950);
       border-width: 1px;
-      border-color: --alpha(var(--color-emerald-500) / 40%);
       border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
@@ -257,15 +284,50 @@
       .confirmTitle {
         font-weight: 700;
         font-size: var(--text-lg);
-        color: var(--color-emerald-500);
       }
 
       .confirmDescription {
-        color: var(--color-emerald-50);
         font-size: var(--text-base);
       }
     }
   }
+
+  .alertSuccess {
+    border-color: --alpha(var(--color-emerald-500) / 40%);
+    background-color: color-mix(in srgb, var(--color-emerald-950), #000);
+
+    .successIcon {
+      color: var(--color-emerald-400);
+      font-size: var(--text-2xl);
+    }
+
+    .successTitle {
+      color: var(--color-emerald-500);
+    }
+  
+    .successMessage {
+      color: var(--color-emerald-50);
+    }
+  }
+
+  .alertError {
+    border-color: --alpha(var(--color-red-500) / 40%);
+    background-color: color-mix(in srgb, var(--color-red-950), #000);
+
+    .errorIcon {
+      color: var(--color-red-400);
+      font-size: var(--text-2xl);
+    }
+
+    .errorTitle {
+      color: var(--color-red-500);
+    }
+  
+    .errorDescription {
+      color: var(--color-red-400);
+    }
+  }
+
 }
 
 @keyframes slideAndFade {
